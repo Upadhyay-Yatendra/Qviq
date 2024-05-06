@@ -69,7 +69,7 @@ function Edit(props) {
         if (image) {
             const formData = new FormData();
             formData.append('photo', image);
-            console.log(image)
+            // console.log(image)
             await fetch(`${backend_url}/api/linktree/uploadImage`, {
                 method: "POST",
                 headers: {

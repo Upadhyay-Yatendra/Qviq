@@ -42,6 +42,16 @@ function View(props) {
   const [msg, setMsg] = useState("");
   const [defaultImg, setDefaultImg] = useState("/avtar.png");
   const [userProfileURL, setUserProfileURL] = useState("");
+
+  useEffect(() => {
+    if (username) {
+        // console.log("username",username);
+      const profileURL = `${frontend_url}/${username}`;
+      
+      setUserProfileURL(profileURL);
+    }
+  }, [username]);   
+
   useEffect(() => {
     // if user is login then fetch data
     if (props.authToken !== null) {
@@ -61,17 +71,16 @@ function View(props) {
               setDefaultImg(`${backend_url}/${d.data.photo}`);
             }
             delete d.data.photo;
+            // console.log("d.data.username",d.data.username);
             setUsername(d.data.username);
             delete d.data.username;
             setUserData(d.data);
           }
         })
         .catch((error) => console.log(error));
-
-      if (username) {
-        const profileURL = `${frontend_url}/${username}`;
-        setUserProfileURL(profileURL);
-      }
+        
+        // console.log('frontendUrl' , frontend_url);
+    
     }
 
     const img = document.getElementById("imgPreview");
@@ -127,9 +136,9 @@ function View(props) {
       <Nav_bar authToken={props.authToken} setAuthToken={props.setAuthToken} />
       <Alertmst msg={msg} setMsg={setMsg} />
       <Background />
-      <button class="Btn" onClick={handleCopy}>
-        <span class="text">Copy This Profile Url</span>
-        <span class="svgIcon">
+      <button className="Btn" onClick={handleCopy}>
+        <span className="text">Copy This Profile Url</span>
+        <span className="svgIcon">
           <svg
             fill="white"
             viewBox="0 0 384 512"
