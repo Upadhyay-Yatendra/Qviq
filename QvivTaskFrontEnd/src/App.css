@@ -274,8 +274,8 @@ input:-webkit-autofill {
 }
 
 #imgPreview{
-  width: 260px;
-  height: 260px;
+  width: 280px;
+  height: 280px;
   display: block;
   border-radius: 50%;
   margin: 18px auto;
@@ -505,7 +505,7 @@ footer>p>a{
   margin: 15px auto;
   width: 220px;
   padding: 0px;
-  height: 35px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -567,3 +567,12 @@ footer>p>a{
   margin: auto;
 }
 
+/* for qrcode */
+.qr-code{
+  
+}
+#imageSection{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}

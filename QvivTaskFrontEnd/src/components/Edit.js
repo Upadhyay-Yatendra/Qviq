@@ -6,10 +6,12 @@ import Alertmst from './Alertmst'
 import Background from './Background'
 import obj from '../url'
 import { Oval } from 'react-loader-spinner'
+import { useNavigate } from "react-router-dom";
 
 function Edit(props) {
     // backend_url
     const backend_url = obj.backend_url
+    const navigate = useNavigate();
     // userstates 
     const [userData, setUserData] = useState({})
     const [image, setImage] = useState(null)
@@ -83,6 +85,7 @@ function Edit(props) {
         }
         setShowLoader(false)
         window.scrollTo(0, 0)
+        navigate('/');
     }
 
     function handleInput(e) {
@@ -113,105 +116,105 @@ function Edit(props) {
             <Nav_bar authToken={props.authToken} setAuthToken={props.setAuthToken} />
             <Alertmst msg={msg} setMsg={setMsg} />
             <Background />
-            <div class="loader"></div>
-            <div class="link-form-container">
-                <p class="title">EDIT LINK TREE</p>
-                <form class="form" onSubmit={handleSubmit}>
-                    <div class="link-input-group">
-                        <label for="name">Name</label>
+            <div className="loader"></div>
+            <div className="link-form-container">
+                <p className="title">EDIT LINK TREE</p>
+                <form className="form" onSubmit={handleSubmit}>
+                    <div className="link-input-group">
+                        <label htmlFor="name">Name</label>
                         <input type="text" name="name" id="name" placeholder="Your name here" value={userData.name} onChange={handleInput} />
                     </div>
-                    <div class="link-input-group">
-                        <label for="designation">Designation</label>
+                    <div className="link-input-group">
+                        <label htmlFor="designation">Designation</label>
                         <input type="text" name="designation" id="designation" placeholder="Your designation here" value={userData.designation} onChange={handleInput} />
                     </div>
-                    <div class="link-input-group">
-                        <label for="Profile">Profile photo</label>
+                    <div className="link-input-group">
+                        <label htmlFor="Profile">Profile photo</label>
                         <input type="file" name="Profile" id="Profile" accept="image/*" onChange={handlePhoto} />
                         <img src={defaultImg} alt='Image Preview' id='imgPreview' />
                     </div>
-                    <div class="link-input-group">
-                        <label for="about">About</label>
+                    <div className="link-input-group">
+                        <label htmlFor="about">About</label>
                         <input type="text" name="about" id="about" placeholder="About section" value={userData.about} onChange={handleInput} />
                     </div>
                     <div className='flex-container'>
-                        <div class="link-input-group half">
-                            <label for="portfolio">Portfolio</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="portfolio">Portfolio</label>
                             <input type="text" name="portfolio" id="portfolio" placeholder="Portfolio profile url here" value={userData.portfolio} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="resume">Resume</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="resume">Resume</label>
                             <input type="text" name="resume" id="resume" placeholder="Resume profile url here" value={userData.resume} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="website">Website</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="website">Website</label>
                             <input type="text" name="website" id="website" placeholder="Website profile url here" value={userData.website} onChange={handleInput} />
                         </div>
                     </div>
 
-                    <p class="sub-title">SOCIAL MEDIA</p>
+                    <p className="sub-title">SOCIAL MEDIA</p>
                     <div className='flex-container'>
-                        <div class="link-input-group half">
-                            <label for="linkedIn">LinkedIn</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="linkedIn">LinkedIn</label>
                             <input type="text" name="linkedIn" id="linkedIn" placeholder="LinkedIn profile url here" value={userData.linkedIn} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="twitter">Twitter</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="twitter">Twitter</label>
                             <input type="text" name="twitter" id="twitter" placeholder="Twitter profile url here" value={userData.twitter} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="instagram">Instagram</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="instagram">Instagram</label>
                             <input type="text" name="instagram" id="instagram" placeholder="Instagram profile url here" value={userData.instagram} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="facebook">Facebook</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="facebook">Facebook</label>
                             <input type="text" name="facebook" id="facebook" placeholder="Facebook profile url here" value={userData.facebook} onChange={handleInput} />
                         </div>
                     </div>
-                    <p class="sub-title">CODING PLATFORMS</p>
+                    <p className="sub-title">CODING PLATFORMS</p>
                     <div className='flex-container'>
-                        <div class="link-input-group half">
-                            <label for="hackerRank">HackerRank</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="hackerRank">HackerRank</label>
                             <input type="text" name="hackerRank" id="hackerRank" placeholder="HackerRank profile url here" value={userData.hackerRank} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="hackerEarth">HackerEarth</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="hackerEarth">HackerEarth</label>
                             <input type="text" name="hackerEarth" id="hackerEarth" placeholder="HackerEarth profile url here" value={userData.hackerEarth} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="codeChef">CodeChef</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="codeChef">CodeChef</label>
                             <input type="text" name="codeChef" id="codeChef" placeholder="CodeChef profile url here" value={userData.codeChef} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="codeforces">Codeforces</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="codeforces">Codeforces</label>
                             <input type="text" name="codeforces" id="codeforces" placeholder="Codeforces profile url here" value={userData.codeforces} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="leetCode">LeetCode</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="leetCode">LeetCode</label>
                             <input type="text" name="leetCode" id="leetCode" placeholder="LeetCode profile url here" value={userData.leetCode} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="geeksforgeeks">GeeksforGeeks</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="geeksforgeeks">GeeksforGeeks</label>
                             <input type="text" name="geeksforgeeks" id="geeksforgeeks" placeholder="GeeksforGeeks profile url here" value={userData.geeksforgeeks} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="gitHub">GitHub</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="gitHub">GitHub</label>
                             <input type="text" name="gitHub" id="gitHub" placeholder="GitHub profile url here" value={userData.gitHub} onChange={handleInput} />
                         </div>
-                        <div class="link-input-group half">
-                            <label for="codePen">CodePen</label>
+                        <div className="link-input-group half">
+                            <label htmlFor="codePen">CodePen</label>
                             <input type="text" name="codePen" id="codePen" placeholder="CodePen profile url here" value={userData.codePen} onChange={handleInput} />
                         </div>
                     </div>
 
-                    <button class="sign" type='submit'>
+                    <button className="sign" type='submit'>
                     {showLoader ?
                             <Oval
                                 height={25}
                                 width={25}
                                 color="black"
                                 wrapperStyle={{}}
-                                wrapperClass="loader_react"
+                                wrapperclassName="loader_react"
                                 visible={true}
                                 ariaLabel='oval-loading'
                                 secondaryColor="grey"
