@@ -69,7 +69,7 @@ function View(props) {
         .catch((error) => console.log(error));
 
       if (username) {
-        const profileURL = `http://localhost:5173/${user}`;
+        const profileURL = `${frontend_url}/${user}`;
         setUserProfileURL(profileURL);
       }
     }
@@ -79,7 +79,7 @@ function View(props) {
       img.addEventListener("mousemove", handleMouseMove);
       img.addEventListener("mouseleave", handleMouseLeave);
     }
-    
+
   }, []);
 
   // handle copy url btn
@@ -111,7 +111,7 @@ function View(props) {
     // const maxRotation = 100; // Maximum tilt angle in degrees
     const rotationX = (mouseY / centerY) * 200;
     const rotationY = -(mouseX / centerX) * 200;
-    console.log("rotationX", rotationX, "rotationY ", rotationY);
+    // console.log("rotationX", rotationX, "rotationY ", rotationY);
     // Apply the rotation transformation to the image
     img.style.transition = "transform 0.1s ease-out"; // Smooth transition over 0.2 seconds
     img.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
