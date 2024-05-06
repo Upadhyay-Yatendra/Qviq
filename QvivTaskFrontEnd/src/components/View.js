@@ -69,7 +69,7 @@ function View(props) {
         .catch((error) => console.log(error));
 
       if (username) {
-        const profileURL = `${frontend_url}/${user}`;
+        const profileURL = `${frontend_url}/${username}`;
         setUserProfileURL(profileURL);
       }
     }
