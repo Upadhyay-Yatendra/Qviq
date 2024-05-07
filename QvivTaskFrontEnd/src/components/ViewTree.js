@@ -64,7 +64,7 @@ function ViewTree(props) {
       img.addEventListener("mouseleave", handleMouseLeave);
     }
     if (user) {
-      const profileURL = `${frontend_url}/${user}`;
+      const profileURL = `${frontend_url}${user}`;
       setUserProfileURL(profileURL);
     }
   }, []);

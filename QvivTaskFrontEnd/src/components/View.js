@@ -46,7 +46,7 @@ function View(props) {
   useEffect(() => {
     if (username) {
         // console.log("username",username);
-      const profileURL = `${frontend_url}/${username}`;
+      const profileURL = `${frontend_url}${username}`;
       
       setUserProfileURL(profileURL);
     }
