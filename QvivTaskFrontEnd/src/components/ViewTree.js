@@ -82,23 +82,23 @@ function ViewTree(props) {
   const handleMouseMove = (e) => {
     const img = e.target;
     const container = img.parentElement;
-
+    console.log(container);
     // Get the center coordinates of the container
     const containerRect = container.getBoundingClientRect();
     const centerX = containerRect.left + containerRect.width / 2;
     const centerY = containerRect.top + containerRect.height / 2;
-
+  
     // Get the mouse position relative to the center of the container
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
-
+  
     // Calculate the angle of rotation based on mouse position
-    // const maxRotation = 100; // Maximum tilt angle in degrees
-    const rotationX = (mouseY / centerY) * 200;
-    const rotationY = -(mouseX / centerX) * 200;
-    // console.log("rotationX", rotationX, "rotationY ", rotationY);
+    const maxRotation = 200; // Maximum tilt angle in degrees
+    const rotationX = Math.min(Math.max((mouseY / centerY) * maxRotation, -maxRotation), maxRotation);
+    const rotationY = Math.min(Math.max(-(mouseX / centerX) * maxRotation, -maxRotation), maxRotation);
+  
     // Apply the rotation transformation to the image
-    img.style.transition = "transform 0.1s ease-out"; // Smooth transition over 0.2 seconds
+    img.style.transition = "transform 0.1s ease-out"; // Smooth transition
     img.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
   };
   const handleMouseLeave = (e) => {
@@ -117,15 +117,19 @@ function ViewTree(props) {
         ) : (
           ""
         )}
-        <div id="imageSection">
+        <div className="imageSection">
           <img
             src={defaultImg}
             alt="Image Preview"
             id="imgPreview"
             //   onMouseMove={handleMouseMove}
           />
+        </div>
+        <div className="imageSection">
+
           <QRCode userProfileURL={userProfileURL} />
         </div>
+
         {userData.about !== "" ? <p className="about">{userData.about}</p> : ""}
 
         <div className="form">
